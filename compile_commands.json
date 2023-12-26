@@ -1,0 +1,66 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/clang++",
+      "-c",
+      "--std=c++17",
+      "-I/opt/homebrew/share/verilator/include",
+      "-Iverilated/",
+      "verilated/VSPIPeripheral__ALL.a",
+      "-o",
+      "simbuild/SPIPeripheral",
+      "/opt/homebrew/share/verilator/include/verilated.cpp"
+    ],
+    "directory": "/Users/sam/Repos/SPI-Peripheral",
+    "file": "/opt/homebrew/share/verilator/include/verilated.cpp",
+    "output": "/Users/sam/Repos/SPI-Peripheral/simbuild/SPIPeripheral"
+  },
+  {
+    "arguments": [
+      "/usr/bin/clang++",
+      "-c",
+      "--std=c++17",
+      "-I/opt/homebrew/share/verilator/include",
+      "-Iverilated/",
+      "verilated/VSPIPeripheral__ALL.a",
+      "-o",
+      "simbuild/SPIPeripheral",
+      "/opt/homebrew/share/verilator/include/verilated_vcd_c.cpp"
+    ],
+    "directory": "/Users/sam/Repos/SPI-Peripheral",
+    "file": "/opt/homebrew/share/verilator/include/verilated_vcd_c.cpp",
+    "output": "/Users/sam/Repos/SPI-Peripheral/simbuild/SPIPeripheral"
+  },
+  {
+    "arguments": [
+      "/usr/bin/clang++",
+      "-c",
+      "--std=c++17",
+      "-I/opt/homebrew/share/verilator/include",
+      "-Iverilated/",
+      "verilated/VSPIPeripheral__ALL.a",
+      "-o",
+      "simbuild/SPIPeripheral",
+      "/opt/homebrew/share/verilator/include/verilated_threads.cpp"
+    ],
+    "directory": "/Users/sam/Repos/SPI-Peripheral",
+    "file": "/opt/homebrew/share/verilator/include/verilated_threads.cpp",
+    "output": "/Users/sam/Repos/SPI-Peripheral/simbuild/SPIPeripheral"
+  },
+  {
+    "arguments": [
+      "/usr/bin/clang++",
+      "-c",
+      "--std=c++17",
+      "-I/opt/homebrew/share/verilator/include",
+      "-Iverilated/",
+      "verilated/VSPIPeripheral__ALL.a",
+      "-o",
+      "simbuild/SPIPeripheral",
+      "sim/SPIPeripheral_sim.cc"
+    ],
+    "directory": "/Users/sam/Repos/SPI-Peripheral",
+    "file": "/Users/sam/Repos/SPI-Peripheral/sim/SPIPeripheral_sim.cc",
+    "output": "/Users/sam/Repos/SPI-Peripheral/simbuild/SPIPeripheral"
+  }
+]
