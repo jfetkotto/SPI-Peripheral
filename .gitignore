@@ -1,4 +1,6 @@
 .DS_Store
+*.vcd
+*.gtkw
 .cache/
 simbuild/
 verilated/
