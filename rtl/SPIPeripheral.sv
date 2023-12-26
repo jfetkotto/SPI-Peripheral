@@ -8,11 +8,11 @@ module SPIPeripheral
   )(// Control/data signals
     input  var logic i_rst // Active high reset
   , input  var logic i_clk // Main clk
-  , input  var logic i_txDataValid // Data valid pulse
-  , input  var logic [7:0] i_txData // Byte to SPI master
-  , output var logic o_rxDataValid // Data valid pulse
-  , output var logic [7:0] o_rxData // Byte from SPI master
-  // SPI interface to top
+  , input  var logic i_txDataValid  // Tx Data valid pulse
+  , input  var logic [7:0] i_txData // Byte to SPI Controller
+  , output var logic o_rxDataValid  // Rx Data valid pulse
+  , output var logic [7:0] o_rxData // Byte from SPI Controller
+  // SPI interface to top ports
   , input  var logic i_SPI_CLK
   , input  var logic i_SPI_PICO
   , input  var logic i_SPI_CS_n
