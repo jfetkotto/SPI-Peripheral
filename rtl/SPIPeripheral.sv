@@ -88,9 +88,8 @@ module SPIPeripheral
     if ( i_SPI_CS_n ) txBitCount_rg <= 3'b111;
     else txBitCount_rg <= txBitCount_rg - '1;
 
-  always_ff @( posedge i_SPI_CLK, posedge i_SPI_CS_n )
-    if ( i_SPI_CS_n ) spiPociBit_rg <= txByte_rg[7];
-    else spiPociBit_rg <= txByte_rg[txBitCount_rg];
+  always_ff @( posedge i_SPI_CLK )
+    spiPociBit_rg <= txByte_rg[txBitCount_rg];
 
   always_ff @( posedge i_clk, posedge i_rst )
     if ( i_rst ) txByte_rg <= '0;
