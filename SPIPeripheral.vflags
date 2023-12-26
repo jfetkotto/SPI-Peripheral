@@ -1,0 +1,6 @@
++1800-2017ext+sv
+--cc
+-sv
+-top-module SPIPeripheral
+-Irtl
+rtl/SPIPeripheral.sv

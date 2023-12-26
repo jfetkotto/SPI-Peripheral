@@ -1,0 +1,5 @@
+read_verilog -sv rtl/SPIPeripheral.sv
+hierarchy -top SPIPeripheral
+proc;; fsm;; opt;; memory;; opt;; clean;;
+
+show -stretch
