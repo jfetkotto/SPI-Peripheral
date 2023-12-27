@@ -5,8 +5,7 @@
 
 module SPIPeripheral
   #(// NO PARAMS
-  )(// Control/data signals
-    input  var logic i_rst // Active high reset
+  )(input  var logic i_rst // Active high reset
   , input  var logic i_clk // Main clk
   , input  var logic i_txDataValid  // Tx Data valid pulse
   , input  var logic [7:0] i_txData // Byte to SPI Controller
@@ -38,8 +37,8 @@ module SPIPeripheral
   // {{{ Receive Rx byte in SPI clock domain
   // Rx bit counter
   always_ff @( posedge i_SPI_CLK, posedge i_SPI_CS_n)
-    if ( i_SPI_CS_n ) rxBitCount_rg <= '0;
-    else rxBitCount_rg <= rxBitCount_rg + '1;
+    if ( i_SPI_CS_n ) rxBitCount_rg <= 0;
+    else rxBitCount_rg <= rxBitCount_rg + 1;
 
   // Rx done
   always_ff @( posedge i_SPI_CLK, posedge i_SPI_CS_n )
