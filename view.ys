@@ -2,4 +2,4 @@ read_verilog -sv rtl/SPIPeripheral.sv
 hierarchy -top SPIPeripheral
 proc;; fsm;; opt;; memory;; opt;; clean;;
 
-show -stretch
+show -stretch -colors 1 -width -enum -format svg -prefix View
