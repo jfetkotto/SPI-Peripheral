@@ -1,7 +1,6 @@
 .DS_Store
 *.vcd
 *.gtkw
-*.svg
 *.dot
 .cache/
 simbuild/
