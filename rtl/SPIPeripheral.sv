@@ -5,7 +5,7 @@
 
 module SPIPeripheral
   #(/* NO PARAMS */
-  )(input  var logic i_rst // Active high reset
+  )(input  var logic i_arst // Active high reset
   , input  var logic i_clk // Main clk
   , input  var logic i_txDataValid  // Tx Data valid pulse
   , input  var logic [7:0] i_txData // Byte to SPI Controller
@@ -59,12 +59,12 @@ module SPIPeripheral
   // {{{ CDC
   // Sync to main clock domain via 2xSync flops
   // generate data valid pulse
-  always_ff @(posedge i_clk, posedge i_rst)
-    if (i_rst) rxDoneMeta_rg <= '0;
+  always_ff @(posedge i_clk, posedge i_arst)
+    if (i_arst) rxDoneMeta_rg <= '0;
     else rxDoneMeta_rg <= rxDone_rg;
 
-  always_ff @(posedge i_clk, posedge i_rst)
-    if (i_rst) rxDoneSync_rg <= '0;
+  always_ff @(posedge i_clk, posedge i_arst)
+    if (i_arst) rxDoneSync_rg <= '0;
     else rxDoneSync_rg <= rxDoneMeta_rg;
 
   always_comb
@@ -72,13 +72,13 @@ module SPIPeripheral
       rxDoneMeta_rg && !rxDoneSync_rg;
 
   // Flag Rx complete
-  always_ff @(posedge i_clk, posedge i_rst)
-    if (i_rst) o_rxDataValid <= '0;
+  always_ff @(posedge i_clk, posedge i_arst)
+    if (i_arst) o_rxDataValid <= '0;
     else o_rxDataValid <= rxDonePe;
 
   // Load Rx byte
-  always_ff @(posedge i_clk, posedge i_rst)
-    if (i_rst) o_rxData <= '0;
+  always_ff @(posedge i_clk, posedge i_arst)
+    if (i_arst) o_rxData <= '0;
     else o_rxData <= rxDonePe ? rxByte_rg : o_rxData;
   // }}} CDC to main clock domain
 
@@ -90,8 +90,8 @@ module SPIPeripheral
   always_ff @(posedge i_SPI_CLK)
     spiPociBit_rg <= txByte_rg[txBitCount_rg];
 
-  always_ff @(posedge i_clk, posedge i_rst)
-    if (i_rst) txByte_rg <= '0;
+  always_ff @(posedge i_clk, posedge i_arst)
+    if (i_arst) txByte_rg <= '0;
     else txByte_rg <= i_txDataValid ? i_txData : txByte_rg;
 
   always_ff @(posedge i_SPI_CLK, posedge i_SPI_CS_n)
