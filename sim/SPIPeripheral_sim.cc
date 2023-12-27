@@ -84,6 +84,10 @@ int main(int argc, char **argv) {
     dut->trace(m_trace, 99);
     m_trace->open("SPIPeripheral_sim.vcd");
     dut->i_SPI_CS_n = 1;
+    dut->eval();
+    dut->i_SPI_CS_n = 0;
+    dut->eval();
+    dut->i_SPI_CS_n = 1;
 
     dut->i_txData = 0xde;
     dut->i_txDataValid = 1;
