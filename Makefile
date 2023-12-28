@@ -17,15 +17,17 @@ CXX_FLAGS += -o ${SIM_OUT}/${PROJECT_NAME}
 
 .PHONY: all clean lint
 
+all: sim
+
 verilate:
 	@echo "** Verilating RTL"
-	@verilator -f ${PROJECT_NAME}.vflags -Mdir ${VERILATOR_OUT} --trace
+	@verilator --compiler clang -f ${PROJECT_NAME}.vflags -Mdir ${VERILATOR_OUT} --trace
 
 buildsim: sim/*.cc verilate
 	@echo "** Building c++ files"
 	@mkdir -p ${SIM_OUT}
 	@cd ${VERILATOR_OUT} && $(MAKE) -f V${PROJECT_NAME}.mk
-	@${CXX} ${CXX_FLAGS}
+	${CXX} ${CXX_FLAGS}
 
 sim: buildsim
 	@echo "** Running ${PROJECT_NAME} simulation"
